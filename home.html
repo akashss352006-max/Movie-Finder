@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Movie Finder</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="home.html" class="brand">Movie Finder</a>
+        <ul class="nav-links">
+            <li><a href="home.html" class="active">Home</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="watchlist.html">Watchlist</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html" onclick="return logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1>Discover Your Next Favorite Movie</h1>
+            <p>Search thousands of movies and series, check ratings, and build your personal watchlist.</p>
+            <form id="heroSearch" class="hero-search">
+                <input type="search" id="heroSearchInput" placeholder="Search movies, series, episodes..." aria-label="Search">
+                <button type="submit" class="btn btn-inline">Search</button>
+            </form>
+        </section>
+
+        <section id="featured" class="featured">
+            <div class="loader"></div>
+        </section>
+
+        <div id="homeSections"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Movie Finder Mini Project. Built with HTML, CSS, JavaScript, and OMDb API.</p>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

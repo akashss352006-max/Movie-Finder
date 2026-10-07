@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Movies - Movie Finder</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="home.html" class="brand">Movie Finder</a>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="search.html" class="active">Search</a></li>
+            <li><a href="watchlist.html">Watchlist</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html" onclick="return logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2 class="section-title">Search Movies</h2>
+        <form id="searchForm" class="search-container">
+            <input type="search" id="searchInput" placeholder="Enter movie name (e.g. Batman, Inception)..." aria-label="Title">
+            <select id="typeFilter" class="select" aria-label="Type">
+                <option value="">All types</option>
+                <option value="movie">Movies</option>
+                <option value="series">Series</option>
+               
+            </select>
+            <input type="number" id="yearFilter" class="year-input" placeholder="Year" min="1880" max="2100" aria-label="Year">
+            <button type="submit" id="searchBtn" class="btn">Search</button>
+        </form>
+        <div id="recentSearches" class="recent-searches"></div>
+
+        <p id="searchSummary" class="search-summary"></p>
+        <div id="searchResults" class="movies-grid">
+            <p class="message">Search for a movie to see results here.</p>
+        </div>
+        <div class="load-more-wrap">
+            <button id="loadMoreBtn" class="btn btn-secondary btn-inline" hidden>Load More</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Movie Finder Mini Project. Built with HTML, CSS, JavaScript, and OMDb API.</p>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>

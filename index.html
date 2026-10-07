@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Movie Finder</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-body">
+    <div class="auth-card">
+        <h2>Movie Finder</h2>
+        <p id="successMessage" class="success-message"></p>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" autocomplete="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" autocomplete="current-password" required>
+            </div>
+            <span id="errorMessage" class="error-message"></span>
+            <button type="submit" class="btn" style="margin-top: 1rem;">Login</button>
+        </form>
+        <div class="auth-link">
+            Don't have an account? <a href="signin.html">Sign Up</a>
+        </div>
+        <div class="auth-link"><a href="landing.html">&larr; Back to home</a></div>
+    </div>
+    <script src="js/auth.js"></script>
+</body>
+</html>

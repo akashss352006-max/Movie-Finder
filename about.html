@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Movie Finder</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="home.html" class="brand">Movie Finder</a>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="watchlist.html">Watchlist</a></li>
+            <li><a href="about.html" class="active">About Us</a></li>
+            <li><a href="index.html" onclick="return logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2 class="section-title">About Movie Finder</h2>
+        
+        <div class="about-card">
+            <p>Movie Finder is a simple movie discovery application created as a mini project using HTML, CSS, JavaScript, and a movie API.</p>
+            <p style="margin-top: 1rem;">It allows users to:</p>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li>Search movies, series, and episodes with type and year filters</li>
+                <li>View detailed information including plot, cast, awards, box office, and ratings from IMDb, Rotten Tomatoes, and Metacritic</li>
+                <li>Browse every season and episode of a TV series</li>
+                <li>Discover featured and popular titles</li>
+                <li>Create and manage a personal watchlist and track what you've watched</li>
+            </ul>
+        </div>
+
+        <div class="about-card">
+            <h3>Technologies Used</h3>
+            <ul>
+                <li><strong>HTML5:</strong> Semantic web structure</li>
+                <li><strong>CSS3:</strong> Modern dark mode styling & responsive grid layouts</li>
+                <li><strong>JavaScript (Vanilla):</strong> DOM manipulation, API fetching, and state management</li>
+                <li><strong>OMDb API:</strong> Dynamic third-party movie metadata source</li>
+                <li><strong>Python FastAPI + SQLite:</strong> User accounts with bcrypt-hashed passwords</li>
+                <li><strong>LocalStorage / SessionStorage:</strong> Watchlist, recent searches, and offline fallback accounts</li>
+            </ul>
+        </div>
+
+        <div class="about-card">
+            <h3>Features</h3>
+            <ul>
+                <li>Real-time search with filters, pagination, and recent searches</li>
+                <li>Detailed view modal with multi-source ratings and IMDb links</li>
+                <li>Season and episode browser for TV series</li>
+                <li>Per-user watchlist with watched tracking, sorting, and filters</li>
+                <li>Authentication via FastAPI backend, with LocalStorage fallback</li>
+                <li>Fully responsive layout for mobile, tablet, and desktop</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Movie Finder Mini Project. Built with HTML, CSS, JavaScript, and OMDb API.</p>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

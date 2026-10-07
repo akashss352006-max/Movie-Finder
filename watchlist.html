@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Watchlist - Movie Finder</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="home.html" class="brand">Movie Finder</a>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="watchlist.html" class="active">Watchlist</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html" onclick="return logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2 class="section-title">My Watchlist</h2>
+        <div class="watchlist-toolbar">
+            <div class="filter-tabs" role="tablist">
+                <button class="filter-tab active" data-filter="all">All</button>
+                <button class="filter-tab" data-filter="unwatched">To Watch</button>
+                <button class="filter-tab" data-filter="watched">Watched</button>
+            </div>
+            <div class="toolbar-right">
+                <select id="sortSelect" class="select" aria-label="Sort by">
+                    <option value="recent">Recently added</option>
+                    <option value="oldest">Oldest added</option>
+                    <option value="title">Title A–Z</option>
+                    <option value="year-desc">Year (newest)</option>
+                    <option value="year-asc">Year (oldest)</option>
+                </select>
+                <button id="clearAllBtn" class="btn btn-danger btn-inline">Clear All</button>
+            </div>
+        </div>
+        <p id="watchlistStats" class="search-summary"></p>
+        <div id="watchlistGrid" class="movies-grid">
+            <!-- Saved watchlist cards generated dynamically -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Movie Finder Mini Project. Built with HTML, CSS, JavaScript, and OMDb API.</p>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/watchlist.js"></script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Finder - Discover Unlimited Movies & Shows</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Landing Page Custom Enhancements */
+        .hero-banner {
+            position: relative;
+            height: 75vh;
+            min-height: 500px;
+            background: linear-gradient(to top, #141414 10%, rgba(20,20,20,0.5) 50%, rgba(20,20,20,0.85) 100%),
+                        url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            background-color: #141414;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 1.5rem;
+            border-radius: 0 0 12px 12px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(45deg, #ffffff, #e50914);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: #ddd;
+            margin-bottom: 2rem;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 0.9rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .cta-primary {
+            background-color: #e50914;
+            color: white;
+            box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+        }
+
+        .cta-primary:hover {
+            background-color: #f40612;
+            transform: translateY(-2px);
+        }
+
+        .cta-outline {
+            border: 2px solid #ffffff;
+            color: white;
+            background: rgba(0,0,0,0.4);
+        }
+
+        .cta-outline:hover {
+            background: white;
+            color: black;
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            padding: 4rem 5%;
+            background-color: #0b0b0b;
+            margin-top: 2rem;
+            border-radius: 12px;
+        }
+
+        .feature-card {
+            background: #181818;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #2a2a2a;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: #e50914;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            color: #fff;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Trending Reel Section */
+        .reel-section {
+            padding: 3rem 5%;
+        }
+
+        .reel-container {
+            display: flex;
+            gap: 1.2rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            scrollbar-width: thin;
+            scrollbar-color: #e50914 #1f1f1f;
+        }
+
+        .reel-item {
+            min-width: 180px;
+            height: 270px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .reel-item {
+            background: #262626;
+        }
+
+        .reel-rating {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 0.6rem 0.5rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .reel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .reel-item:hover {
+            transform: scale(1.05);
+        }
+
+        .reel-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(229, 9, 20, 0.9);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        /* FAQ Accordion */
+        .faq-section {
+            padding: 4rem 5%;
+            background-color: #141414;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            background-color: #1f1f1f;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #2a2a2a;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.25rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: #ccc;
+            padding: 0 1.25rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 1.25rem 1.25rem 1.25rem;
+        }
+
+        .faq-question span {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question span {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <a href="landing.html" class="brand">Movie Finder</a>
+        <ul class="nav-links" id="landingNav">
+            <li><a href="index.html">Login</a></li>
+            <li><a href="signin.html">Sign Up</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Banner Section -->
+    <header class="hero-banner">
+        <div class="hero-content">
+            <h1>Unlimited Movies, Details, & Personal Watchlists</h1>
+            <p>Explore real-time IMDb movie ratings, cast lineups, plot summaries, and organize your favorite films in one place.</p>
+            <div class="cta-group">
+                <a href="index.html" class="cta-btn cta-primary">Login to Get Started</a>
+                <a href="signin.html" class="cta-btn cta-outline">Create New Account</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="features-grid">
+        <div class="feature-card">
+            <span class="feature-icon">🎬</span>
+            <h3>Real-Time API Data</h3>
+            <p>Fetch live data directly from OMDb API including ratings, genres, directors, and runtimes.</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">📌</span>
+            <h3>Personal Watchlist</h3>
+            <p>Save movies and series to your own watchlist, mark them as watched, and sort or filter them anytime.</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">⚡</span>
+            <h3>Smart Search</h3>
+            <p>Search movies, series, and episodes with type and year filters, then browse every season of a show.</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">📱</span>
+            <h3>Responsive UI</h3>
+            <p>Clean dark theme layout optimized for mobile screens, tablets, and desktop devices.</p>
+        </div>
+    </section>
+
+    <!-- Trending Reel Section -->
+    <section class="reel-section">
+        <h2 class="section-title">Trending Now</h2>
+        <div id="trendingReel" class="reel-container">
+            <p class="message">Loading trending titles...</p>
+        </div>
+    </section>
+
+    <!-- Interactive FAQ Section -->
+    <section class="faq-section">
+        <h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <button class="faq-question">What is Movie Finder? <span>+</span></button>
+            <div class="faq-answer">
+                Movie Finder is a web application built using HTML5, CSS3, Vanilla JavaScript, a FastAPI backend, and the OMDb API for discovering movies and creating custom watchlists.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How does authentication work? <span>+</span></button>
+            <div class="faq-answer">
+                When running with the Python FastAPI backend, accounts are stored in a SQLite database with bcrypt-hashed passwords. If the pages are opened without the backend, the app falls back to browser LocalStorage so the demo still works.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Where does movie data come from? <span>+</span></button>
+            <div class="faq-answer">
+                Movie information, plots, ratings (IMDb, Rotten Tomatoes, Metacritic), episodes, and posters are fetched in real-time from the OMDb API.
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Movie Finder Mini Project. Built with HTML, CSS, JavaScript, and OMDb API.</p>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script>
+        // Logged-in visitors get a shortcut instead of Login / Sign Up
+        if (isLoggedIn()) {
+            document.getElementById("landingNav").innerHTML = '<li><a href="home.html">Go to Home &rarr;</a></li>';
+        }
+
+        // Trending reel (click a poster for full details)
+        (async function loadTrending() {
+            const reel = document.getElementById("trendingReel");
+            const ids = ["tt1375666", "tt0468569", "tt0816692", "tt0903747", "tt4154796", "tt0133093", "tt4574334", "tt6751668", "tt0944947", "tt0110912"];
+            try {
+                const movies = await Promise.all(ids.map(id => omdb({ i: id }).catch(() => null)));
+                const valid = movies.filter(m => m && m.Response === "True");
+                if (!valid.length) {
+                    reel.closest("section").remove();
+                    return;
+                }
+                reel.innerHTML = "";
+                valid.forEach((movie, index) => {
+                    const item = document.createElement("div");
+                    item.className = "reel-item";
+                    item.title = movie.Title;
+                    item.innerHTML = `
+                        <img src="${escapeHtml(posterUrl(movie.Poster))}" alt="${escapeHtml(movie.Title)} poster" loading="lazy" referrerpolicy="no-referrer">
+                        <span class="reel-badge">#${index + 1}</span>
+                        ${hasValue(movie.imdbRating) ? `<span class="reel-rating">⭐ ${escapeHtml(movie.imdbRating)}</span>` : ""}
+                    `;
+                    item.addEventListener("click", () => showMovieDetails(movie.imdbID));
+                    reel.appendChild(item);
+                });
+            } catch (err) {
+                reel.closest("section").remove();
+            }
+        })();
+
+        // Toggle FAQ Items
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                faqItem.classList.toggle('active');
+
+                // Collapse other open FAQs
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
